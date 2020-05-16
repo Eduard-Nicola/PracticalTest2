@@ -1,5 +1,6 @@
 package ro.pub.cs.systems.eim.PracticalTestV2.network;
 
+import android.content.Intent;
 import android.util.Log;
 
 import org.apache.http.HttpEntity;
@@ -27,6 +28,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 
+import ro.pub.cs.systems.eim.PracticalTestV2.PracticalTestV2MainActivity;
 import ro.pub.cs.systems.eim.PracticalTestV2.general.Constants;
 import ro.pub.cs.systems.eim.PracticalTestV2.general.Utilities;
 import ro.pub.cs.systems.eim.PracticalTestV2.model.Information;

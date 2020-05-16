@@ -13,4 +13,6 @@ public interface Constants {
 
     static final String urlStart = "https://www.countryflags.io/";
     static final String urlEnd = "/flat/64.png";
+
+    public static int CAMERA_ZOOM = 12;
 }
