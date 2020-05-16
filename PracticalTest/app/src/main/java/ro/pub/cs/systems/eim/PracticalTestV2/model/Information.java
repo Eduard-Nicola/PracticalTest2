@@ -1,5 +1,9 @@
 package ro.pub.cs.systems.eim.PracticalTestV2.model;
 
+import android.graphics.Bitmap;
+
+import ro.pub.cs.systems.eim.PracticalTestV2.general.Constants;
+
 public class Information {
 
     private String countryName;
@@ -7,8 +11,46 @@ public class Information {
     private String countryCode;
     private Double latitude;
     private Double longitude;
-    private static final String urlStart = "https://www.countryflags.io/";
-    private static final String urlEnd = "/flat/64.png";
+
+    public String getCountryName() {
+        return countryName;
+    }
+
+    public void setCountryName(String countryName) {
+        this.countryName = countryName;
+    }
+
+    public String getContinentName() {
+        return continentName;
+    }
+
+    public void setContinentName(String continentName) {
+        this.continentName = continentName;
+    }
+
+    public String getCountryCode() {
+        return countryCode;
+    }
+
+    public void setCountryCode(String countryCode) {
+        this.countryCode = countryCode;
+    }
+
+    public Double getLatitude() {
+        return latitude;
+    }
+
+    public void setLatitude(Double latitude) {
+        this.latitude = latitude;
+    }
+
+    public Double getLongitude() {
+        return longitude;
+    }
+
+    public void setLongitude(Double longitude) {
+        this.longitude = longitude;
+    }
 
     public Information() {
         this.countryName = null;
@@ -29,6 +71,6 @@ public class Information {
     @Override
     public String toString() {
         return countryName + ", " + continentName + ", " + countryCode + ", " + latitude.toString() +
-                ", " + longitude.toString() + ", " + urlStart + countryCode + urlEnd;
+                ", " + longitude.toString() + ", " + Constants.urlStart + countryCode + Constants.urlEnd;
     }
 }

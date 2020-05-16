@@ -65,7 +65,12 @@ public class CommunicationThread extends Thread {
             HttpClient httpClient = new DefaultHttpClient();
             String pageSourceCode = "";
 
-            HttpGet httpGet = new HttpGet(Constants.WEB_SERVICE_ADDRESS + "/" + ip);
+            HttpGet httpGet = null;
+            if (ip.equals("myip")) {
+                httpGet = new HttpGet(Constants.WEB_SERVICE_ADDRESS + "?" + ip);
+            } else {
+                httpGet = new HttpGet(Constants.WEB_SERVICE_ADDRESS + "/" + ip);
+            }
             HttpResponse httpGetResponse = httpClient.execute(httpGet);
             HttpEntity httpGetEntity = httpGetResponse.getEntity();
             if (httpGetEntity != null) {
@@ -81,18 +86,6 @@ public class CommunicationThread extends Thread {
 
 
             JSONObject content = new JSONObject(pageSourceCode);
-
-//            JSONArray weatherArray = content.getJSONArray(Constants.WEATHER);
-//            JSONObject weather;
-//            String condition = "";
-//            for (int i = 0; i < weatherArray.length(); i++) {
-//                weather = weatherArray.getJSONObject(i);
-//                condition += weather.getString(Constants.MAIN) + " : " + weather.getString(Constants.DESCRIPTION);
-//
-//                if (i < weatherArray.length() - 1) {
-//                    condition += ";";
-//                }
-//            }
 
             String countryCode = content.getString("alpha2");
             String countryName = content.getString("name");

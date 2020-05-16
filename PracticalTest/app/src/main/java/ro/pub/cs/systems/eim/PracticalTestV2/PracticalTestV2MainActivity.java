@@ -7,6 +7,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -24,6 +25,7 @@ public class PracticalTestV2MainActivity extends AppCompatActivity {
     private EditText clientIpEditText;
     private Button getInformationButton;
     private TextView informationTextView;
+    private ImageView imageView;
 
     private ServerThread serverThread = null;
     private ClientThread clientThread = null;
@@ -73,7 +75,7 @@ public class PracticalTestV2MainActivity extends AppCompatActivity {
             informationTextView.setText(Constants.EMPTY_STRING);
 
             clientThread = new ClientThread(
-                    clientAddress, Integer.parseInt(clientPort), ip, informationTextView
+                    clientAddress, Integer.parseInt(clientPort), ip, informationTextView, imageView
             );
             clientThread.start();
         }
@@ -92,6 +94,7 @@ public class PracticalTestV2MainActivity extends AppCompatActivity {
         clientIpEditText = findViewById(R.id.client_ip_edit_text);
         getInformationButton = findViewById(R.id.get_information_button);
         informationTextView = findViewById(R.id.information_text_view);
+        imageView = findViewById(R.id.image_view);
 
         connectButton.setOnClickListener(connectButtonClickListener);
         getInformationButton.setOnClickListener(getInformationButtonClickListener);
